@@ -1,5 +1,7 @@
 Habitxter::Application.routes.draw do
-  resources :users, :user_sessions
+  resources :habits
+
+  resources :users, :user_sessions, :habits
   match 'login' => 'user_sessions#new', :as=>:login
   match 'logout' => 'user_sessions#destroy', :as=>:logout
 
