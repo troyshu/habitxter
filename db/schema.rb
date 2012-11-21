@@ -11,14 +11,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121121002616) do
+ActiveRecord::Schema.define(:version => 20121121005850) do
+
+  create_table "actions", :force => true do |t|
+    t.text     "notes"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "habit_id"
+  end
+
+  add_index "actions", ["habit_id", "created_at"], :name => "index_actions_on_habit_id_and_created_at"
 
   create_table "habits", :force => true do |t|
     t.string   "name"
     t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "user_id"
   end
+
+  add_index "habits", ["user_id", "created_at"], :name => "index_habits_on_user_id_and_created_at"
 
   create_table "users", :force => true do |t|
     t.string   "username"

@@ -24,7 +24,7 @@ class HabitsController < ApplicationController
   # GET /habits/new
   # GET /habits/new.json
   def new
-    @habit = Habit.new
+    @habit = Habit.new  
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,7 +40,11 @@ class HabitsController < ApplicationController
   # POST /habits
   # POST /habits.json
   def create
-    @habit = Habit.new(params[:habit])
+    
+    #logger.debug("creating new habit for current user id #{current_user.id}")
+
+    @habit = current_user.habits.new(params[:habit])
+    logger.debug("habit #{@habit.id} created")
 
     respond_to do |format|
       if @habit.save

@@ -1,4 +1,6 @@
 Habitxter::Application.routes.draw do
+  resources :actions
+
   resources :habits
 
   resources :users, :user_sessions, :habits
