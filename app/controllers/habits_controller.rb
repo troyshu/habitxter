@@ -1,3 +1,5 @@
+
+
 class HabitsController < ApplicationController
   # GET /habits
   # GET /habits.json

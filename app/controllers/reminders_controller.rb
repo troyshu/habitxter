@@ -1,3 +1,5 @@
+require 'rufus/scheduler'
+
 class RemindersController < ApplicationController
   # GET /reminders
   # GET /reminders.json
