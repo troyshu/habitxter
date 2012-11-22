@@ -24,7 +24,8 @@ class HabitsController < ApplicationController
   # GET /habits/new
   # GET /habits/new.json
   def new
-    @habit = Habit.new  
+    @habit = Habit.new
+    @habit.enabled = true  
 
     respond_to do |format|
       format.html # new.html.erb
