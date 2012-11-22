@@ -1,4 +1,5 @@
 require 'rufus/scheduler'
+require 'chronic'
 
 class RemindersController < ApplicationController
   # GET /reminders
@@ -43,6 +44,11 @@ class RemindersController < ApplicationController
   # POST /reminders.json
   def create
     @reminder = Reminder.new(params[:reminder])
+
+    #scheduler = Rufus::Scheduler.start_new
+    #scheduler.at @user_defined_time do
+    #   some_method
+    #end
 
     respond_to do |format|
       if @reminder.save
