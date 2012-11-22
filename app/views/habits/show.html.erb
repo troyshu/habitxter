@@ -10,6 +10,12 @@
   <%= @habit.description %>
 </p>
 
+<p>
+  <b>Reminder time:</b>
+  <%= @habit.reminder_time %>
+</p>
+
+
 
 <%= link_to 'Edit', edit_habit_path(@habit) %> |
 <%= link_to 'Back', habits_path %>

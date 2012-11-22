@@ -12,7 +12,7 @@
 #
 
 class Habit < ActiveRecord::Base
-  attr_accessible :description, :name
+  attr_accessible :description, :name, :reminder_time
   validates :name, presence: true
   belongs_to :user
   has_many :actions
