@@ -42,12 +42,13 @@ class HabitsController < ApplicationController
   def create
     
     #logger.debug("creating new habit for current user id #{current_user.id}")
-
+    
     @habit = current_user.habits.new(params[:habit])
     logger.debug("habit #{@habit.id} created")
 
     respond_to do |format|
       if @habit.save
+        @habit.update_attributes(reminder_time: @habit.reminder_time.in_time_zone)
         format.html { redirect_to @habit, notice: 'Habit was successfully created.' }
         format.json { render json: @habit, status: :created, location: @habit }
       else

@@ -9,6 +9,7 @@
 #  updated_at    :datetime         not null
 #  user_id       :integer
 #  reminder_time :time
+#  enabled       :boolean
 #
 
 class Habit < ActiveRecord::Base

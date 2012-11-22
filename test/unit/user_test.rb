@@ -11,6 +11,7 @@
 #  perishable_token  :string(255)
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
+#  phone_number      :integer
 #
 
 require 'test_helper'

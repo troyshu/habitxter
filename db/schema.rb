@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121122123319) do
+ActiveRecord::Schema.define(:version => 20121122193036) do
 
   create_table "actions", :force => true do |t|
     t.text     "notes"
@@ -29,9 +29,20 @@ ActiveRecord::Schema.define(:version => 20121122123319) do
     t.datetime "updated_at",    :null => false
     t.integer  "user_id"
     t.time     "reminder_time"
+    t.boolean  "enabled"
   end
 
+  add_index "habits", ["enabled"], :name => "index_habits_on_enabled"
   add_index "habits", ["user_id", "created_at"], :name => "index_habits_on_user_id_and_created_at"
+
+  create_table "reminders", :force => true do |t|
+    t.time     "reminder_time"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "user_id"
+  end
+
+  add_index "reminders", ["user_id", "reminder_time"], :name => "index_reminders_on_user_id_and_reminder_time"
 
   create_table "users", :force => true do |t|
     t.string   "username"
@@ -42,6 +53,7 @@ ActiveRecord::Schema.define(:version => 20121122123319) do
     t.string   "perishable_token"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+    t.integer  "phone_number"
   end
 
 end

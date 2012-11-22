@@ -1,23 +1,18 @@
 # == Schema Information
 #
-# Table name: habits
+# Table name: reminders
 #
 #  id            :integer          not null, primary key
-#  name          :string(255)
-#  description   :text
+#  reminder_time :time
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  user_id       :integer
-#  reminder_time :time
-#  enabled       :boolean
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyString
-  description: MyText
+  reminder_time: 2012-11-22 14:25:35
 
 two:
-  name: MyString
-  description: MyText
+  reminder_time: 2012-11-22 14:25:35

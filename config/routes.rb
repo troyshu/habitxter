@@ -1,4 +1,6 @@
 Habitxter::Application.routes.draw do
+  resources :reminders
+
   root :to => 'static_pages#home'
   match 'help' => 'static_pages#help'
 
